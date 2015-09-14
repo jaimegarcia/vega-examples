@@ -3,7 +3,9 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "modernizr": "~2.8.1"
+    "d3": "~3.4.1",
+    "modernizr": "~2.8.1",
+    "vega": "~2.2.4"
   },
   "overrides": {
     "bootstrap": {
