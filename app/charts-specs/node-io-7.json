@@ -1,0 +1,74 @@
+{
+  "width": 800,
+  "height": 200,
+  "data": [
+    {
+      "name": "nodeversions",
+      "url": "data/node-versions-5.csv",
+      "format": {"type": "csv", "parse": { "date":"date"}}
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "time",
+      "range": "width",
+      "zero": false,
+      "domain": {"data": "nodeversions", "field": "date"}
+    },
+    {
+      "name": "y",
+      "type": "log",
+      "range": "height",
+      "nice": true,
+      "domain": {"data": "nodeversions", "field": "version"}
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "nodeversions", "field": "engine"},
+      "range": "category10"
+    }
+  ],
+  "axes": [
+    {"type": "x", "scale": "x"},
+    {"type": "y", "scale": "y"}
+  ],
+  "marks": [
+    {
+      "type": "group",
+      "from": {
+        "data": "nodeversions",
+        "transform": [{"type": "facet", "groupby": ["engine"]}]
+      },
+      "marks": [
+        {
+          "type": "line",
+          "properties": {
+            "enter": {
+              "x": {"scale": "x", "field": "date"},
+              "y": {"scale": "y", "field": "version"},
+              "stroke": {"scale": "color", "field": "engine"},
+              "strokeWidth": {"value": 2}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {
+            "transform": [{"type": "filter", "test": "datum.date == 1267430400000"}]
+          },
+          "properties": {
+            "enter": {
+              "x": {"scale": "x", "field": "x", "offset": 2},
+              "y": {"scale": "y", "field": "y"},
+              "fill": {"scale": "color", "field": "engine"},
+              "text": {"field": "engine"},
+              "baseline": {"value": "middle"}
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

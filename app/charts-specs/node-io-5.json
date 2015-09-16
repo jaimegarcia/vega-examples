@@ -1,0 +1,54 @@
+{
+  "width": 800,
+  "height": 200,
+  "padding": {"top": 10, "left": 30, "bottom": 30, "right": 10},
+  "data": [
+    {
+      "name": "table",
+      "url": "data/node-versions-2.json",
+      "format": {"type": "json", "parse": {"x": "date"}}
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "time",
+      "range": "width",
+      "zero": false,
+      "domain": {"data": "table", "field": "x"}
+    },
+    {
+      "name": "y",
+      "type": "log",
+      "range": "height",
+      "domain": {"data": "table", "field": "y"}
+    }
+  ],
+  "axes": [
+    {"type": "x", "scale": "x"},
+    {"type": "y", "scale": "y"}
+  ],
+  "marks": [
+    {
+      "type": "symbol",
+      "from": {"data": "table"},
+      "properties": {
+        "enter": {
+          "x": {"scale": "x", "field": "x"},
+          "y": {"scale": "y", "field": "y"},
+          "y2": {"scale": "y", "value": 0},
+          "stroke": {"value": "steelblue"},
+          "fill": {"value": "steelblue"}
+        },
+        "update": {
+          "size": {"value": 10},
+          "fillOpacity": {"value": 1}
+        },
+        "hover": {
+          "size": {"value": 40},
+          "fillOpacity": {"value": 0.5}
+        }
+      }
+    }
+  ]
+}

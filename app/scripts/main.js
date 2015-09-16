@@ -9,4 +9,4 @@ function parse(spec) {
       .update();
   });
 }
-parse("charts-specs/bar-chart.json");
+parse("charts-specs/node-io-9.json");
