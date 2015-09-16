@@ -18,12 +18,6 @@
       "format": {"type": "csv", "parse": { "date":"date"}}
     }
   ],
-  "predicates": [
-    {
-      "name": "tooltip", "type": "==",
-      "operands": [{"signal": "tooltip._id"}, {"arg": "id"}]
-    }
-  ],
   "scales": [
     {
       "name": "x",
