@@ -1,6 +1,6 @@
 {
   "width": 800,
-  "height": 200,
+  "height": 400,
   "signals": [
     {
       "name": "tooltip",
